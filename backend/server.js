@@ -5,11 +5,16 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var Issue = require("./models/issue");
 
-
+//import cors from 'cors';
+//import bodyParser from 'body-parser';
+//import mongoose, { mongo } from 'mongoose';
+//import Issue from './models/issue';
+//import issue from './models/issue';
+//import { runInNewContext } from 'vm';
 
 
 const app = express();
-
+//const app = require("express");
 
 const router = express.Router();
 app.use(cors());
@@ -88,28 +93,9 @@ router.route('/issues/delete/:id').get((req, res) => {
         else
         res.json('Remove Successfully!!!');
     })
-});
-
-router.route('/issues/delete_new/:id').get((req, res) => {
-
-    Issue.findByIdAndRemove({_id: req.params.id}, (err, issue) => {
-        if(err)
-        res.json(err);
-        else
-        res.json('Remove Successfully!!!');
-    })
-});
-
-router.route('/issues/delete_new1/:id').get((req, res) => {
-
-    Issue.findByIdAndRemove({_id: req.params.id}, (err, issue) => {
-       
-        res.json('Remove Successfully!!!');
-    })
 })
-
 
 app.use('/', router);
 
 //app.get('/', (req, res) => res.send("Hello world!!"));
-app.listen(4000, () => console.log('Express is running on 4000'));
+app.listen(4000, () => console.log('Express Server running on 4000'));
