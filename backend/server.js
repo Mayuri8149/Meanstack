@@ -98,7 +98,16 @@ router.route('/issues/delete_new/:id').get((req, res) => {
         else
         res.json('Remove Successfully!!!');
     })
+});
+
+router.route('/issues/delete_new1/:id').get((req, res) => {
+
+    Issue.findByIdAndRemove({_id: req.params.id}, (err, issue) => {
+       
+        res.json('Remove Successfully!!!');
+    })
 })
+
 
 app.use('/', router);
 
